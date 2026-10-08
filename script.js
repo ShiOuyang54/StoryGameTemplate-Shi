@@ -10,88 +10,125 @@
 // --------------------------------------------------
 
 // First, we create a variable for the current scene being displayed
-let currentScene = "backyard";
+let currentScene = "classroom";
 
 // Then, we create an object that stores the data for each scene,
 const scenes = {
   // See "backyard" for the first example
-  backyard: {
-    title: "Location: Backyard",
-    character: "Interviewee:Grandma",
-    text: "Text: well what I remember happening is that Darcie went inside to play with her pretend kitchen, I heard her neighbor mention he was really hungry, and the dog ran around really quickly",
+  classroom: {
+    title: "The Classroom",
+    character: "Lily",
+    text: "Lily cannot find her phone. She remembers using it in class before lunch. Help Lily look for clues.",
     // you can choose how many choices to include
     // each choice can have text, an action, and/or nextScene
     choices: [
-      {
-        text: "Chase after the dog (-10 HP)",
-        action: function () {
-          updateHealth(-10);
-        },
-        nextScene: "entrance"
-      },
-      {
-        text: "Ask about the neighbor",
-        nextScene: "hallway"
-      },
-      {
-          text: "Pick up the brass key",
-          action: function () {
-            pickUpItem("brass key");
-          },
-          nextScene: "hallway"
-      }
-    ]
+  {
+    text: "Check Lily's desk",
+    nextScene: "desk"
   },
-
-  entrance: {
-    title: "Location: Entrance",
-    character: "Interviewee:Neighbor",
-    text: "well what I remember...",
-    choices: [
-      {
-        text: "Ask about the dog",
-        nextScene: "backyard"
-      },
-         {
-        text: "Ask about the neighbor",
-        nextScene: "hallway"
-      }
-    ]
-  },
-
-  hallway: {
-    title: "The Hallway",
-    text: "The hallway is dark and silent.",
-    choices: [
-      {
-        text: "backyard",
-        nextScene: "lockedDoor"
-      }
-    ]
-  },
-
-   lockedDoor: {
-    title: "The Locked Door",
-    text: "The door handle doesn't move.",
-    choices: [
-      {
-        text: "Try to open it",
-        action: unlockDoor
-      },
-      {
-        text: "Go back",
-        nextScene: "backyard"
-      }
-    ]
-  },
-
-   solution: {
-    title: "The solution",
-    text: "You solved the mystery!",
-    
+  {
+    text: "Check the teacher's desk",
+    nextScene: "teacherDesk"
   }
+]
+},
+  desk: {
+  title: "Lily's Desk",
+  character: "Lily",
+  text: "Lily looks under her desk and finds a small note. The note says to check the library.",
+  choices: [
+    {
+  text: "Pick up the note",
+  action: function () {
+    if (!inventory.includes("note")) {
+      pickUpItem("note");
+    }
+  },
+  nextScene: "classroom"
+},
+    {
+      text: "Go back to the classroom",
+      nextScene: "classroom"
+    }
+  ]
+},
+teacherDesk: {
+  title: "Teacher's Desk",
+  character: "Mr. Lee",
+  text: "Lily asks Mr. Lee about her missing phone. Mr. Lee remembers seeing Lily near the library before lunch.",
+  choices: [
+    {
+      text: "Go to the library",
+      nextScene: "library"
+    },
+    {
+      text: "Go back to the classroom",
+      nextScene: "classroom"
+    }
+  ]
+},
+library: {
+  title: "The Library",
+  character: "Emma",
+  text: "Lily and Emma look around the library. Emma remembers seeing Jack near the cafeteria. Maybe Jack knows something about the missing phone.",
+  choices: [
+    {
+      text: "Go to the cafeteria",
+      nextScene: "cafeteria"
+    },
+    {
+      text: "Go back to the classroom",
+      nextScene: "classroom"
+    }
+  ]
+},
+
+cafeteria: {
+  title: "The Cafeteria",
+  character: "Jack",
+  text: "Lily and Emma find Jack in the cafeteria. Jack says he saw Lily put her phone on a table during lunch. He thinks someone may have taken it to the school office.",
+  choices: [
+    {
+      text: "Go to the school office",
+      nextScene: "office"
+    },
+    {
+      text: "Go back to the library",
+      nextScene: "library"
+    }
+  ]
+},
+
+office: {
+  title: "The School Office",
+  character: "Lily",
+  text: "Lily and Emma go to the school office. The staff says someone found a phone in the cafeteria. Lily sees a phone that looks like hers.",
+  choices: [
+    {
+      text: "Check the phone",
+      nextScene: "foundPhone"
+    },
+    {
+      text: "Go back to the cafeteria",
+      nextScene: "cafeteria"
+    }
+  ]
+},
+
+foundPhone: {
+  title: "Phone Found!",
+  character: "Lily",
+  text: "Lily checks the phone and sees her favorite wallpaper. It is her phone! She is very happy and thanks Emma and Jack for helping her. The mystery is solved!",
+  choices: [
+    {
+      text: "Play Again",
+      nextScene: "classroom"
+    }
+  ]
+}
 };
 
+  
 // --------------------------------------------------
 // UPDATE SCENES
 // Read through the comments below to see what this section does

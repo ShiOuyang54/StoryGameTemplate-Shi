@@ -1,1 +1,45 @@
 <!-- Add your index page here -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Lily's Missing Phone</title>
+</head>
+<body>
+    <h1>Find Lily's Missing Phone</h1>
+<p>Welcome to my mystery game! Help Lily find her missing phone by following clues.</p>
+<form action="game.html" method="get">
+    <label for="playerName">What is your name?</label>
+<input type="text" id="playerName" name="playerName">
+<br><br>
+<label for="grade">What grade are you in?</label>
+<select id="grade" name="grade">
+    <option value="9">9th Grade</option>
+    <option value="10">10th Grade</option>
+    <option value="11">11th Grade</option>
+    <option value="12">12th Grade</option>
+</select>
+<br><br>
+<p>Where do you want to search first?</p>
+
+<input type="radio" id="classroom" name="firstPlace" value="classroom">
+<label for="classroom">Classroom</label><br>
+
+<input type="radio" id="library" name="firstPlace" value="library">
+<label for="library">Library</label><br>
+
+<input type="radio" id="cafeteria" name="firstPlace" value="cafeteria">
+<label for="cafeteria">Cafeteria</label>
+
+<br><br>
+<label for="strategy">How will you find the phone?</label>
+<input type="text" id="strategy" name="strategy" placeholder="Enter your plan">
+
+<br><br>
+<button type="submit">Start Game</button>
+</form>
+<br>
+<a href="about.html">About Me</a>
+</body>
+</html>
