@@ -58,9 +58,12 @@ teacherDesk: {
   text: "Lily asks Mr. Lee about her missing phone. Mr. Lee remembers seeing Lily near the library before lunch.",
   choices: [
     {
-      text: "Go to the library",
-      nextScene: "library"
-    },
+  text: "Go to the library",
+  action: function () {
+    updateHealth(-10);
+  },
+  nextScene: "library"
+},
     {
       text: "Go back to the classroom",
       nextScene: "classroom"
@@ -104,10 +107,12 @@ office: {
   character: "Lily",
   text: "Lily and Emma go to the school office. The staff says someone found a phone in the cafeteria. Lily sees a phone that looks like hers.",
   choices: [
-    {
-      text: "Check the phone",
-      nextScene: "foundPhone"
-    },
+   {
+  text: "Check the phone",
+  action: function () {
+    checkPhone();
+  }
+},
     {
       text: "Go back to the cafeteria",
       nextScene: "cafeteria"
@@ -121,9 +126,16 @@ foundPhone: {
   text: "Lily checks the phone and sees her favorite wallpaper. It is her phone! She is very happy and thanks Emma and Jack for helping her. The mystery is solved!",
   choices: [
     {
-      text: "Play Again",
-      nextScene: "classroom"
-    }
+  text: "Play Again",
+  action: function () {
+    inventory = [];
+    inventoryDisplay.textContent = "";
+    health = 100;
+    healthDisplay.textContent = health;
+    messageDisplay.textContent = "";
+    updateScene("classroom");
+  }
+}
   ]
 }
 };
@@ -188,7 +200,7 @@ function updateScene(sceneName) {
 }
 
 // This updates the screen with the current scene
-updateScene(currentScene);
+
 
 
 // --------------------------------------------------
@@ -245,11 +257,11 @@ function pickUpItem(itemName) {
 // --------------------------------------------------
 
 // Create a function that checks if the inventory contains one item and if so shows the win condition scene.
-function unlockDoor() {
-  if (inventory.includes("brass key")) {
-    updateScene("solution");
+function checkPhone() {
+  if (inventory.includes("note")) {
+    updateScene("foundPhone");
   } else {
-    messageDisplay.textContent = "The door is locked.";
+    messageDisplay.textContent = "You need to find the note in the classroom first!";
   }
 }
-
+updateScene(currentScene);
