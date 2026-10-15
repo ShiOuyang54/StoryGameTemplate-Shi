@@ -160,9 +160,10 @@ const sceneTitle = document.getElementById("scene-title");
 const sceneText = document.getElementById("scene-text");
 const choicesContainer = document.getElementById("choices-container");
 const characterName = document.getElementById("character-name");
-
+const messageDisplay = document.getElementById("message-display");
 // Then, we create a function to update the scene,
 function updateScene(sceneName) {
+  messageDisplay.textContent = "";
 
   //This update the variable currentScene with the new scene passed as a parameter
   currentScene = sceneName;
@@ -240,7 +241,6 @@ let inventory = [];
 
 // Display current inventory
 const inventoryDisplay = document.querySelector("#inventory-display");
-const messageDisplay = document.getElementById("message-display");
 
 // Create a function to update inventory 
 function pickUpItem(itemName) {
