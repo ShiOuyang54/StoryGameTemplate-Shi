@@ -16,8 +16,9 @@ let currentScene = "classroom";
 const scenes = {
   // See "backyard" for the first example
   classroom: {
-    title: "The Classroom",
-    character: "Lily",
+  title: "The Classroom",
+  image: "images/classroom.jpg",
+  character: "Lily",
     text: "Lily cannot find her phone. She remembers using it in class before lunch. Help Lily look for clues.",
     // you can choose how many choices to include
     // each choice can have text, an action, and/or nextScene
@@ -72,6 +73,7 @@ teacherDesk: {
 },
 library: {
   title: "The Library",
+  image: "images/library.jpg",
   character: "Emma",
   text: "Lily and Emma look around the library. Emma remembers seeing Jack near the cafeteria. Maybe Jack knows something about the missing phone.",
   choices: [
@@ -88,8 +90,9 @@ library: {
 
 cafeteria: {
   title: "The Cafeteria",
+  image: "images/Cafeteria.jpg",
   character: "Jack",
-  text: "Lily and Emma find Jack in the cafeteria. Jack says he saw Lily put her phone on a table during lunch. He thinks someone may have taken it to the school office.",
+    text: "Lily and Emma find Jack in the cafeteria. Jack says he saw Lily put her phone on a table during lunch. He thinks someone may have taken it to the school office.",
   choices: [
     {
       text: "Go to the school office",
@@ -104,6 +107,7 @@ cafeteria: {
 
 office: {
   title: "The School Office",
+  image: "images/school office.jpg",
   character: "Lily",
   text: "Lily and Emma go to the school office. The staff says someone found a phone in the cafeteria. Lily sees a phone that looks like hers.",
   choices: [
@@ -158,6 +162,7 @@ foundPhone: {
 // and make the code harder to read
 const sceneTitle = document.getElementById("scene-title");
 const sceneText = document.getElementById("scene-text");
+const sceneImage = document.getElementById("scene-image");
 const choicesContainer = document.getElementById("choices-container");
 const characterName = document.getElementById("character-name");
 const messageDisplay = document.getElementById("message-display");
@@ -176,7 +181,13 @@ function updateScene(sceneName) {
   sceneTitle.textContent = scene.title;
   sceneText.textContent = scene.text;
   characterName.textContent = scene.character;
-
+if (scene.image) {
+  sceneImage.src = scene.image;
+  sceneImage.style.display = "block";
+} else {
+  sceneImage.removeAttribute("src");
+  sceneImage.style.display = "none";
+}
   // Clear the old buttons before creating new ones
   choicesContainer.innerHTML = "";
 
