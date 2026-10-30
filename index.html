@@ -1,40 +1,54 @@
-<!-- Add your index page here -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Find Lily's Missing Phone</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-   <header>
-    <h1 class="heading">Find Lily's Missing Phone</h1>
-</header>
-<p class="card">
-    Welcome to my mystery game! Help Lily find her missing phone by following clues.
-</p>
-<form action="game.html" method="get">
-    <label for="playerName">What is your name?</label>
-<input type="text" id="playerName" name="playerName" required>
-<br><br>
-<label for="grade">What grade are you in?</label>
-<select id="grade" name="grade">
-    <option value="9">9th Grade</option>
-    <option value="10">10th Grade</option>
-    <option value="11">11th Grade</option>
-    <option value="12">12th Grade</option>
-</select>
-<br><br>
+    <header>
+        <h1 class="heading">Find Lily's Missing Phone</h1>
+    </header>
 
-<br><br>
-<label for="strategy">How will you find the phone?</label>
-<input type="text" id="strategy" name="strategy" placeholder="Enter your plan">
+    <main>
+        <p class="card">
+            Welcome to my mystery game! Help Lily find her missing phone by following clues.
+        </p>
 
-<br><br>
-<button type="submit" style="border: 2px solid purple; box-shadow: 2px 2px 5px gray;">Start Game</button>
-</form>
-<br>
-<a href="about.html">About Me</a>
+        <section class="card">
+            <form action="game.html" method="get">
+
+                <label for="playerName">What is your name?</label>
+                <input type="text" id="playerName" name="playerName" required>
+
+                <br><br>
+
+                <label for="grade">What grade are you in?</label>
+                <select id="grade" name="grade">
+                    <option value="9">9th Grade</option>
+                    <option value="10">10th Grade</option>
+                    <option value="11">11th Grade</option>
+                    <option value="12">12th Grade</option>
+                </select>
+
+                <br><br>
+
+                <label for="strategy">How will you find the phone?</label>
+                <input type="text" id="strategy" name="strategy" placeholder="Enter your plan">
+
+                <br><br>
+
+                <button type="submit">Start Game</button>
+
+            </form>
+        </section>
+
+        <p>
+            <a href="about.html">About Me</a>
+        </p>
+    </main>
 </body>
 </html>

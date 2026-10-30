@@ -1,6 +1,6 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Nunito', sans-serif;
     background-color: #f5f0ff;
     color: #333;
     text-align: center;
@@ -58,10 +58,11 @@ img {
     border-radius: 10px;
     margin: 10px;
 }
+
 ul, ol {
-  display: table;
-  margin: 20px auto;
-  text-align: left;
+    display: table;
+    margin: 20px auto;
+    text-align: left;
 }
 
 .heading {
@@ -70,7 +71,10 @@ ul, ol {
     text-align: center;
     font-weight: bold;
     letter-spacing: 2px;
-    padding: 10px;
+    margin: 20px auto;
+    padding: 15px;
+    border: 3px dashed #9575cd;
+    border-radius: 10px;
 }
 
 .card {
@@ -80,12 +84,28 @@ ul, ol {
     text-align: center;
     border-radius: 12px;
     margin: 15px auto;
+    width: 80%;
+    max-width: 600px;
+    box-sizing: border-box;
 }
-#inventory-display {
+
+#inventory-box {
     background-color: #e8ddff;
     color: #7952a3;
     padding: 15px;
     border: 2px solid #9575cd;
     border-radius: 10px;
     font-weight: bold;
+}
+
+#inventory-display {
+    margin: 5px 0;
+}
+
+#message-display {
+    margin: 5px 0;
+}
+
+#inventory-box:not(:has(#inventory-display:not(:empty), #message-display:not(:empty))) {
+    display: none;
 }

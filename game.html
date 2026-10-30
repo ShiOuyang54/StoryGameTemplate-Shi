@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,56 +7,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Find Lily's Missing Phone</title>
     <script src="script.js" defer></script>
-
 </head>
+
 <body>
     <header>
-      <nav>
-            <ul> 
+        <nav>
+            <ul>
                 <li><a href="index.html">Home</a></li>
             </ul>
-            <ul> 
+            <ul>
                 <li><a href="game.html">Play the game</a></li>
             </ul>
-            <ul> 
+            <ul>
                 <li><a href="about.html">About the creator</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-    <header>
-        <h1 id="scene-title" class="heading"></h1>
-        <h2 id="character-name">  </h2>
-    </header>
-    
-    <section>
-    <p id="scene-text"></p>
-    <img id="scene-image" src="" alt="Game Scene" width="400">
-</section>
+        <header>
+            <h1 id="scene-title" class="heading"></h1>
+            <h2 id="character-name"></h2>
+        </header>
 
-    <section>
-        <div id="choices-container"> </div>
-    </section>   
-        
-    <section>
-        <p> Current HP:</p>
-       
-<p id="health-display">100</p>
+       <section class="card">
+            <p id="scene-text"></p>
+            <img id="scene-image" src="" alt="Game Scene" width="400">
+        </section>
 
+        <section class="card">
+            <div id="choices-container"></div>
+        </section>
 
-        <p> Inventory:</p>
-       
-<p id="inventory-display"></p>
+        <section class="card">
+            <p>Current HP:</p>
+            <p id="health-display">100</p>
 
+            <p>Inventory:</p>
 
-        <p id="message-display"></p>
-    </section>
-
-
+            <div id="inventory-box">
+                <p id="inventory-display"></p>
+                <p id="message-display"></p>
+            </div>
+        </section>
     </main>
-    <footer>
 
+    <footer>
     </footer>
 </body>
 </html>
